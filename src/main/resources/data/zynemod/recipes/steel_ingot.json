@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "forge:ingots/iron"
+  },
+  "result": "zynemod:steel_ingot",
+  "experience": 0.35,
+  "cookingtime": 400
+}
