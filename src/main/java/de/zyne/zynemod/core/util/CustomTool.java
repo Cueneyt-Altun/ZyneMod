@@ -3,11 +3,15 @@ package de.zyne.zynemod.core.util;
 import de.zyne.zynemod.core.init.ItemInit;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.registries.ObjectHolder;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 public enum CustomTool implements Tier {
 
-    STEEL_SWORD(4, 4000, 15f, 2f, 17, () -> Ingredient.of(ItemInit.STEEL_SWORD.get()));
+    STEEL_SWORD(4, 1000, 15f, 8f, 17, () -> Ingredient.of(ItemInit.STEEL_INGOT.get()));
 
 
     public final int harvestLevel;
@@ -16,8 +20,8 @@ public enum CustomTool implements Tier {
     public final float attackDamage;
     public final int enchantibility;
     public final Ingredient repairMaterial;
-
-    CustomTool(int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantibility, Supplier<Ingredient> repairMaterial) {
+    
+    CustomTool(int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantibility, @Nullable Supplier<Ingredient> repairMaterial) {
 
         this.harvestLevel = harvestLevel;
         this.maxUses = maxUses;
@@ -48,8 +52,8 @@ public enum CustomTool implements Tier {
     @Override
     public int getLevel() {
         return this.harvestLevel;
-    }
 
+    }
     @Override
     public int getEnchantmentValue() {
         return this.enchantibility;
