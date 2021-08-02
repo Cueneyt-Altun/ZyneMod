@@ -11,16 +11,21 @@ import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.ObjectHolder;
 import org.antlr.v4.Tool;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 public class ItemInit {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ZyneMod.MOD_ID);
-
     public static final RegistryObject<Item> IRON_ROD = ITEMS.register("iron_rod", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
     public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot", () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
-    public static final RegistryObject<Item> STEEL_SWORD = ITEMS.register("steel_sword", () -> new SwordItem(CustomTool.STEEL_SWORD, 5, 1f,
-            new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
+
+    public static final RegistryObject<Item> STEEL_SWORD = ITEMS.register("steel_sword", () ->
+            new SwordItem(CustomTool.STEEL_SWORD, -1, -4f + 1.0f,
+                    new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
     //public static final RegistryObject<Item> STEEL_PICKAXE;
 
 
